@@ -11,7 +11,6 @@ import java.util.Objects;
 @Setter
 public class LoanRequest {
     private final int amount;
-    private final long borrowerId;
     private final int repaymentInDays;
     private final double interestRate;
 
@@ -20,19 +19,18 @@ public class LoanRequest {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof LoanRequest that)) return false;
-        return amount == that.amount && borrowerId == that.borrowerId && repaymentInDays == that.repaymentInDays && Double.compare(that.interestRate, interestRate) == 0;
+        return amount == that.amount && repaymentInDays == that.repaymentInDays && Double.compare(that.interestRate, interestRate) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, borrowerId, repaymentInDays, interestRate);
+        return Objects.hash(amount, repaymentInDays, interestRate);
     }
 
     @Override
     public String toString() {
         return "loanRequest{" +
                 "amount=" + amount +
-                ", borrowerId=" + borrowerId +
                 ", repaymentInDays=" + repaymentInDays +
                 ", interestRate=" + interestRate +
                 '}';
